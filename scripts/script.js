@@ -5,52 +5,59 @@ function sortArray(numItems) {
 
   // make a scrambled array of numItems numbers
  function makeArray(){
-    scramArray = new array[];
+  this.numItems = numItems;
+  scramArray = [];
+  orderedArray = [];
 
-    for (i = 0; i < this.numItems; i++) {
-      scramArry.push(Math.floor(Math.random() * 100));
-      retun scramArray;
-    }
+  for (var i = 0; i < this.numItems; i++) {
+    scramArray.push(Math.floor(Math.random() * 10));
+  }
+  return scramArray;
   } // makeArray()
 
   var numArray = makeArray();
+console.log("random array: " + numArray);
 
   function bubbleSort(numArray) {
-      var numLeft = length.this.numArray;
-      var holdNum, newNum;
+    var numLeft = numArray.length;
+    var holdNum, newNum;
 
-      do {
-        newNum = 0;
+console.log("numLeft = " + numLeft);
 
-        for (i == 1; i <= numLeft -1; i++) {
+    do {
+      newNum = 0;
+      for (var i = 1; i <= numLeft - 1; i++) {
+        console.log("at: " + i + ": " + numArray[i]);
+        if (numArray[i-1] > numArray[i]) {
+          // swap(numArray[i-1] and numArray[i])
+          holdNum = numArray[i - 1];
+          numArray[i - 1] = numArray[i];
+          numArray[i] = holdNum;
+          newNum = i;
+        } // swap elements
+       }//for all elements remaining
+       numLeft = newNum; // decrement number of items left
 
-          if (numArray[i-1] > numArray[i]) {
-            // swap(numArray[i-1] and numArray[i])
-            holdNum = numArray[i - 1];
-            numArray[i - 1] = numArray[i];
-            numArray[i] = holdNum;
-            newNum = i;
-          } //if numArray[i - 1] greater than numArray[i]
-         }//for
-
-         numLeft = newNum; // decrement number of items left
-
-         // display the array's contents as a number of blocks
+console.log(numArray);
+        // display the array's contents as a number of blocks
         $.each(numArray, function(j, val){
           drawCubes(numArray[j], j);
           return val = numArray.length;
         });
 
-       }// do
+     }// do
       while(numLeft > 0);
-
   } // bubblesort
 
-  $.each(arr)
+  this.orderedArray = bubbleSort(scramArray);
+
 
 } // sortArray
 
 function showSort(number)
   {
     randArray = new sortArray(number);
+   // randArray.bubbleSort(randArray.numArray);
   }
+
+$( "#startbutton" ).click(function(){showSort(4);});
