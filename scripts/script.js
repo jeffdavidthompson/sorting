@@ -1,4 +1,4 @@
-// sortArray object produces an array of integers and sorts it
+/*// sortArray object produces an array of integers and sorts it
 // the results of each iteration of the sort are displayed.
 
 function sortArray(numItems) {
@@ -54,4 +54,41 @@ function showSort(number)
     randArray.bubbleSort(randArray.numArray);
   }
 
-$( "#startbutton" ).click(function(){showSort(4);});
+$( "#startbutton" ).click(function(){showSort(4);});*/
+
+a = [4,3,2,1]
+
+//swap an array element with the next element in the index
+swap = function(swapArray,index) {
+  var temp = swapArray[index];
+  swapArray[index] = swapArray[index + 1];
+  swapArray[index + 1] = temp;
+  console.log(swapArray[index])
+  
+}
+
+bubbleSort = function(array){
+  sorted = false
+  while (sorted == false) {
+    for (i = 0; i < array.length - 1; i++) {
+      sorted = true
+      if (array[i] > array[i+1]) {
+      sorted = false
+      }
+    for (i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i+1]) {
+        swap(array,i)
+      }
+    }
+
+
+    };
+
+  }
+
+}
+
+bubbleSort(a);
+
+console.log(a);
+console.log('end')
