@@ -17,6 +17,33 @@
 /* #Site Styles
 ================================================== */
 
+h1 {
+	text-align: center;
+	margin-top: 10px;
+}
+
+body {
+	background-color: #C0C0C0;
+}
+
+.blockholder {
+	width: 100px;
+	height: 100px;
+	border: teal solid 2px;
+	margin: 10px 0px;
+}
+
+.block {
+	width: 75px;
+	height: 75px;
+	background-color: #2929A6;
+	border: 2px solid;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+
+
 /* #Page Styles
 ================================================== */
 
