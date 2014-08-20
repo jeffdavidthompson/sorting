@@ -5,3 +5,4 @@ drawCubes = function(numberOfCubes,row){
   }
   $('.blockholder div').addClass('block');
 }
+
