@@ -16,18 +16,14 @@ function sortArray(numItems) {
   } // makeArray()
 
   var numArray = makeArray();
-console.log("random array: " + numArray);
 
   function bubbleSort(numArray) {
     var numLeft = numArray.length;
     var holdNum, newNum;
 
-console.log("numLeft = " + numLeft);
-
     do {
       newNum = 0;
       for (var i = 1; i <= numLeft - 1; i++) {
-        console.log("at: " + i + ": " + numArray[i]);
         if (numArray[i-1] > numArray[i]) {
           // swap(numArray[i-1] and numArray[i])
           holdNum = numArray[i - 1];
@@ -38,7 +34,6 @@ console.log("numLeft = " + numLeft);
        }//for all elements remaining
        numLeft = newNum; // decrement number of items left
 
-console.log(numArray);
         // display the array's contents as a number of blocks
         $.each(numArray, function(j, val){
           drawCubes(numArray[j], j);
@@ -57,7 +52,17 @@ console.log(numArray);
 function showSort(number)
   {
     randArray = new sortArray(number);
-   // randArray.bubbleSort(randArray.numArray);
   }
 
 $( "#startbutton" ).click(function(){showSort(4);});
+
+drawCubes = function(numberOfCubes,row){
+  $("#" + row).empty();
+  for (var i = 1; i < numberOfCubes + 1; i++) {
+
+    $('#' + row).append("<div></div>");
+      $('.blockholder div').addClass('block');
+    $('.block').fadeIn(3000);
+  }
+
+}
