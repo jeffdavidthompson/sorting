@@ -1,63 +1,66 @@
-// sortArray object produces an array of integers and sorts it
-// the results of each iteration of the sort are displayed.
 
-function sortArray(numItems) {
+//Fill an array with random numbers between 1 and 'range'
+randomizeArray = function(array,range){
+  for (var i = 0; i < array.length; i++) {
+    array[i] = Math.floor((Math.random() * range) + 1)
+  };
+}
 
-  // make a scrambled array of numItems numbers
- function makeArray(){
-  this.numItems = numItems;
-  scramArray = [];
-  orderedArray = [];
-
-  for (var i = 0; i < this.numItems; i++) {
-    scramArray.push(Math.floor(Math.random() * 10));
+//draws out all cubes in the current array
+drawAllCubes = function(array){
+  console.log(array)
+  //go through each row
+  for (var j = 0; j < array.length; j++) {
+    $("#" + j).empty();
+    console.log("empty row " + j)
+    //when in each row, fill with cubes
+    for (var k = 1; k <= array[j]; k++) {
+      $("#" + j).append("<div></div>");
+      console.log("adding a div to row " + k)
+      $('.blockholder div').addClass('block');
+      $('.block').fadeIn();
+    }
   }
-  return scramArray;
-  } // makeArray()
+}
 
-  var numArray = makeArray();
-console.log("random array: " + numArray);
+//swap an array element with the next element in the index
+swap = function(swapArray,index) {
+  var temp = swapArray[index];
+  swapArray[index] = swapArray[index + 1];
+  swapArray[index + 1] = temp;
+}
 
-  function bubbleSort(numArray) {
-    var numLeft = numArray.length;
-    var holdNum, newNum;
-
-console.log("numLeft = " + numLeft);
-
-    do {
-      newNum = 0;
-      for (var i = 1; i <= numLeft - 1; i++) {
-        console.log("at: " + i + ": " + numArray[i]);
-        if (numArray[i-1] > numArray[i]) {
-          // swap(numArray[i-1] and numArray[i])
-          holdNum = numArray[i - 1];
-          numArray[i - 1] = numArray[i];
-          numArray[i] = holdNum;
-          newNum = i;
-        } // swap elements
-       }//for all elements remaining
-       numLeft = newNum; // decrement number of items left
-
-console.log(numArray);
-        // display the array's contents as a number of blocks
-        $.each(numArray, function(j, val){
-          drawCubes(numArray[j], j);
-          return val = numArray.length;
-        });
-
-     }// do
-      while(numLeft > 0);
-  } // bubblesort
-
-  this.orderedArray = bubbleSort(scramArray);
-
-
-} // sortArray
-
-function showSort(number)
-  {
-    randArray = new sortArray(number);
-   // randArray.bubbleSort(randArray.numArray);
+//bubblesort an array
+bubbleSort = function(array){
+  sorted = false
+  while (sorted == false) {
+    sorted = true
+    for (i = 0; i < array.length - 1; i++) {
+      
+      if (array[i] > array[i+1]) {
+        swap(array,i);
+      }
+    }
+    sorted = true
+    for (i = 0; i < array.length - 1; i++) {
+      if (array[i] > array[i+1]) {
+      sorted = false;
+      break;
+      }
+    }
   }
+ }
 
-$( "#startbutton" ).click(function(){showSort(4);});
+a = [0,0,0,0]
+
+randomizeArray(a,10)
+
+ bubbleSort(a)
+
+
+
+$( "#startbutton" ).click(function(){
+
+  drawAllCubes(a);;
+  }
+);
