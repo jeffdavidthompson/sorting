@@ -36,10 +36,13 @@ body {
 .block {
 	width: 75px;
 	height: 75px;
-	background-color: #2929A6;
+	margin-left: 5px;
+	margin-top: 10px;
+	background-color: #3399FF;
 	border: 2px solid;
   border-radius: 25px;
   display: inline-block;
+  opacity: .5;
 }
 
 
